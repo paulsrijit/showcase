@@ -1,0 +1,5 @@
+brokag:
+  kafka:
+    bootstrap:
+      servers: 192.168.111.129:9092
+    groupId: kafka-cons-grp-001
