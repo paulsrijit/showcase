@@ -1,4 +1,4 @@
-package org.paulsr.showcase.brokag.config.kafka;
+package org.paulsr.showcase.brokag.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,13 +7,14 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
+@ComponentScan(basePackages = "org.paulsr.showcase.brokag.kafka.consumer")
 @Configuration
 @EnableKafka
 public class KafkaConsumerConfig {
@@ -43,10 +44,5 @@ public class KafkaConsumerConfig {
 		ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
 		factory.setConsumerFactory(consumerFactory());
 		return factory;
-	}
-
-	@KafkaListener(topics = "PAULSR_DEMO_T001", groupId = "kafka-cons-grp-001")
-	public void listenGroupFoo(String message) {
-		System.out.println("Received Message in group foo: " + message);
 	}
 }
