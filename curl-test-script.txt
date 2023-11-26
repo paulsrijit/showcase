@@ -1,0 +1,4 @@
+curl -d "hello spring event" -H "Content-Type: application/text" -X POST http://localhost:8080/produce-spring-event
+
+
+curl -d "hello broker event" -H "Content-Type: application/text" -X POST http://localhost:8080/produce-broker-event

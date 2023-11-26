@@ -1,2 +1,3 @@
 org.paulsr.showcase.brokag.kafka.config.KafkaProducerConfig
 org.paulsr.showcase.brokag.kafka.config.KafkaConsumerConfig
+org.paulsr.showcase.brokag.aop.AopConfig

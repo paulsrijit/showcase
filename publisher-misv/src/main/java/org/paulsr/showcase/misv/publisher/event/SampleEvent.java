@@ -1,23 +1,13 @@
 package org.paulsr.showcase.misv.publisher.event;
 
-import org.springframework.context.ApplicationEvent;
+import org.paulsr.showcase.brokag.event.BrokerEvent;
 
-public class SampleEvent extends ApplicationEvent {
+public class SampleEvent extends BrokerEvent {
 
 	private String message;
 
 	public SampleEvent(Object source, String message) {
-		super(source);
-		this.message = message;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	@Override
-	public String toString() {
-		return "SampleEvent [message=" + message + "]";
+		super(source, message);
 	}
 
 }
