@@ -5,6 +5,7 @@ import org.paulsr.showcase.misv.publisher.event.SampleEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
@@ -21,8 +22,10 @@ public class EventProducer {
 
 	public void publishSpringEvent(final String message) {
 		LOG.info("Publishing spring event {}", message);
-		SampleEvent customSpringEvent = new SampleEvent(this, message);
-		eventPublisher.publishEvent(customSpringEvent);
+//		SampleEvent customSpringEvent = new SampleEvent(this, message);
+//		eventPublisher.publishEvent(customSpringEvent);
+		
+		eventPublisher.publishEvent(new SampleEvent(this, message));
 	}
 
 	public void publishBrokerEvent(final String message, final String topic) {
